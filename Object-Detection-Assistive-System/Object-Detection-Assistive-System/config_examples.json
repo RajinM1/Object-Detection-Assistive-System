@@ -1,0 +1,205 @@
+{
+  "examples": {
+    "high_performance": {
+      "description": "Maximum performance with GPU acceleration",
+      "config": {
+        "video": {
+          "source": "camera",
+          "camera_id": 0,
+          "frame_skip": 0,
+          "save_output": false
+        },
+        "model": {
+          "path": "gpModel.pt",
+          "confidence_threshold": 0.6,
+          "use_gpu": true
+        },
+        "audio": {
+          "speech_rate": 350,
+          "start_on_launch": true
+        },
+        "detection": {
+          "max_distance": 10.0,
+          "blur_faces": false
+        }
+      }
+    },
+    "low_power": {
+      "description": "Battery-saving mode with frame skipping",
+      "config": {
+        "video": {
+          "source": "camera",
+          "camera_id": 0,
+          "frame_skip": 3,
+          "save_output": false
+        },
+        "model": {
+          "path": "gpModel.pt",
+          "confidence_threshold": 0.7,
+          "use_gpu": false
+        },
+        "audio": {
+          "speech_rate": 280,
+          "start_on_launch": false
+        },
+        "detection": {
+          "max_distance": 8.0,
+          "blur_faces": false
+        }
+      }
+    },
+    "audio_only": {
+      "description": "For blind users - audio only, no visual display",
+      "config": {
+        "video": {
+          "source": "camera",
+          "camera_id": 0,
+          "display_window": false,
+          "save_output": false
+        },
+        "model": {
+          "path": "gpModel.pt",
+          "confidence_threshold": 0.5,
+          "use_gpu": true
+        },
+        "audio": {
+          "enabled": true,
+          "start_on_launch": true,
+          "speech_rate": 300,
+          "volume": 1.0
+        },
+        "detection": {
+          "max_distance": 12.5,
+          "blur_faces": false
+        },
+        "display": {
+          "show_statistics": false,
+          "show_controls": false
+        }
+      }
+    },
+    "indoor_navigation": {
+      "description": "Optimized for indoor spaces (shorter range, higher priority on people)",
+      "config": {
+        "video": {
+          "source": "camera",
+          "camera_id": 0
+        },
+        "model": {
+          "path": "gpModel.pt",
+          "confidence_threshold": 0.5
+        },
+        "audio": {
+          "speech_rate": 300
+        },
+        "detection": {
+          "max_distance": 6.0,
+          "blur_faces": true
+        },
+        "alerts": {
+          "distance_zones": {
+            "danger": 1.0,
+            "very_close": 2.0,
+            "close": 3.5,
+            "far": 5.0
+          },
+          "object_priorities": {
+            "person": 1,
+            "chair": 2,
+            "bench": 2,
+            "dog": 3,
+            "cat": 3
+          }
+        }
+      }
+    },
+    "outdoor_walking": {
+      "description": "Optimized for outdoor (longer range, priority on vehicles)",
+      "config": {
+        "video": {
+          "source": "camera",
+          "camera_id": 0
+        },
+        "model": {
+          "path": "gpModel.pt",
+          "confidence_threshold": 0.5
+        },
+        "audio": {
+          "speech_rate": 320
+        },
+        "detection": {
+          "max_distance": 15.0,
+          "blur_faces": true
+        },
+        "alerts": {
+          "distance_zones": {
+            "danger": 2.0,
+            "very_close": 4.0,
+            "close": 7.0,
+            "far": 10.0
+          },
+          "object_priorities": {
+            "car": 1,
+            "truck": 1,
+            "bus": 1,
+            "motorcycle": 2,
+            "bicycle": 2,
+            "person": 3,
+            "traffic light": 4,
+            "stop sign": 4
+          }
+        }
+      }
+    },
+    "quiet_mode": {
+      "description": "Less frequent announcements for experienced users",
+      "config": {
+        "video": {
+          "source": "camera",
+          "camera_id": 0
+        },
+        "audio": {
+          "speech_rate": 280
+        },
+        "alerts": {
+          "cooldown_times": {
+            "danger_zone": 0.5,
+            "very_close": 1.0,
+            "close": 2.0,
+            "far": 3.0
+          }
+        }
+      }
+    },
+    "verbose_mode": {
+      "description": "Very frequent announcements for beginners",
+      "config": {
+        "video": {
+          "source": "camera",
+          "camera_id": 0
+        },
+        "audio": {
+          "speech_rate": 350
+        },
+        "alerts": {
+          "cooldown_times": {
+            "danger_zone": 0.2,
+            "very_close": 0.4,
+            "close": 0.7,
+            "far": 1.0
+          }
+        }
+      }
+    }
+  },
+  "usage": {
+    "note": "Copy any example config above and paste into your config.json file",
+    "steps": [
+      "1. Choose a configuration example above",
+      "2. Copy the entire 'config' object",
+      "3. Paste it into config.json (replacing existing content)",
+      "4. Save and run: python main_enhanced.py"
+    ]
+  }
+}
+

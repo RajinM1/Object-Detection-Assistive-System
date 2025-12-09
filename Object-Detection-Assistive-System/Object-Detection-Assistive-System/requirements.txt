@@ -1,0 +1,19 @@
+# Object Detection Assistive System for Visually Impaired People
+# Python >= 3.8 required
+
+# Deep Learning & Computer Vision
+ultralytics>=8.0.0
+opencv-python>=4.8.0
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+
+# Text-to-Speech
+pyttsx3>=2.90
+
+# Utilities
+Pillow>=10.0.0
+
+# Optional: For better performance
+# nvidia-cudnn-cu11>=8.9.0  # Uncomment if using NVIDIA GPU
+

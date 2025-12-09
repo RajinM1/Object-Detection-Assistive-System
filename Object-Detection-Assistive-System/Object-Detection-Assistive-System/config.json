@@ -1,0 +1,69 @@
+{
+  "video": {
+    "source": "camera",
+    "camera_id": 0,
+    "video_file": "test_video2.mp4",
+    "output_file": "output_with_boxes.avi",
+    "display_window": true,
+    "save_output": true,
+    "fps": 20
+  },
+  "model": {
+    "path": "gpModel.pt",
+    "confidence_threshold": 0.5,
+    "use_gpu": true
+  },
+  "audio": {
+    "enabled": true,
+    "start_on_launch": false,
+    "emergency_override": true,
+    "continuous_voice": true,
+    "speech_rate": 280,
+    "volume": 1.0,
+    "language": "en"
+  },
+  "detection": {
+    "max_distance": 12.5,
+    "frame_skip": 0,
+    "blur_faces": true
+  },
+  "alerts": {
+    "beep_frequencies": {
+      "left": 300,
+      "center": 500,
+      "right": 800
+    },
+    "cooldown_times": {
+      "danger_zone": 0.5,
+      "very_close": 1.0,
+      "close": 2.0,
+      "far": 3.0
+    },
+    "distance_zones": {
+      "danger": 1.5,
+      "very_close": 3.0,
+      "close": 5.0,
+      "far": 8.0
+    },
+    "object_priorities": {
+      "person": 2,
+      "car": 2,
+      "truck": 12,
+      "bus": 12,
+      "motorcycle": 3,
+      "bicycle": 3,
+      "traffic light": 4,
+      "stop sign": 4
+    }
+  },
+  "display": {
+    "show_distance": true,
+    "show_boxes": true,
+    "show_confidence": true,
+    "show_statistics": true,
+    "show_controls": true,
+    "font_scale": 0.6,
+    "box_thickness": 2
+  }
+}
+
